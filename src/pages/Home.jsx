@@ -1,8 +1,19 @@
+import styled from "styled-components";
+import ActiveCourses from "../components/HomePage/ActiveCourses";
+import UpcomingCourses from "../components/HomePage/UpcomingCourses";
+
+const StyledHome = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap:4rem;
+`
+
 const Home = () => {
     return (
-        <>
-            <div>Home</div>
-        </>
+        <StyledHome>
+            <ActiveCourses />
+            <UpcomingCourses />
+        </StyledHome>
     )
 }
 

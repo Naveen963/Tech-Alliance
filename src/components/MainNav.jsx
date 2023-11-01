@@ -1,18 +1,22 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
-import styled from 'styled-components'
+import PropTypes from 'prop-types';
+import React from 'react';
+import { BsWindowStack, BsTrophy } from "react-icons/bs";
 import {
-    HiOutlineCalendarDays,
     HiOutlineCog6Tooth,
     HiOutlineHome,
-    HiOutlineHomeModern,
-    HiOutlineUsers,
+    HiOutlineUsers
 } from "react-icons/hi2";
+import { MdOutlineDashboard } from "react-icons/md";
+import { NavLink } from 'react-router-dom';
+import styled from 'styled-components';
 
 const NavList = styled.ul`
     display: flex;
     flex-direction: column;
     gap: 0.8rem;
+    overflow: hidden;
+    margin-left: ${props => (props.isCollapsed ? "auto" : "-3rem")};
+
 `
 
 const StyledNavLink = styled(NavLink)`
@@ -52,43 +56,50 @@ const StyledNavLink = styled(NavLink)`
   }
 
 `
-const MainNav = () => {
+const StyledMainNav = styled.nav`
+    width: ${props => (props.isCollapsed ? "auto" : "9rem")};
+`
+const MainNav = ({ toggleSideNav }) => {
+
     return (
-        <nav>
-            <NavList>
+        <StyledMainNav isCollapsed={toggleSideNav} >
+            <NavList >
                 <li>
                     <StyledNavLink to="/home">
                         <HiOutlineHome />
-                        <span>Home</span>
+                        {toggleSideNav && <span>Home</span>}
                     </StyledNavLink>
                 </li>
                 <li>
-                    <StyledNavLink to="/bookings">
-                        <HiOutlineCalendarDays />
-                        <span>My Courses</span>
+                    <StyledNavLink to="/home">
+                        <BsWindowStack />
+                        {toggleSideNav && <span>My Courses</span>}
                     </StyledNavLink>
                 </li>
                 <li>
                     <StyledNavLink to="/dashboard">
-                        <HiOutlineHomeModern />
-                        <span>DashBoard</span>
+                        <MdOutlineDashboard />
+                        {toggleSideNav && <span>DashBoard</span>}
+                    </StyledNavLink>
+                </li>
+                <li>
+                    <StyledNavLink to="/home">
+                        <BsTrophy />
+                        {toggleSideNav && <span>Hackathons</span>}
                     </StyledNavLink>
                 </li>
                 <li>
                     <StyledNavLink to="/profile">
                         <HiOutlineUsers />
-                        <span>Profile</span>
-                    </StyledNavLink>
-                </li>
-                <li>
-                    <StyledNavLink to="/settings">
-                        <HiOutlineCog6Tooth />
-                        <span>Settings</span>
+                        {toggleSideNav && <span>Profile</span>}
                     </StyledNavLink>
                 </li>
             </NavList>
-        </nav>
+        </StyledMainNav>
     );
 }
 
+MainNav.propTypes = {
+    toggleSideNav: PropTypes.bool.isRequired,
+};
 export default MainNav
