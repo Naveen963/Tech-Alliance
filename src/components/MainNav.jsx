@@ -2,10 +2,10 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { BsWindowStack, BsTrophy } from "react-icons/bs";
 import {
-    HiOutlineCog6Tooth,
     HiOutlineHome,
     HiOutlineUsers
 } from "react-icons/hi2";
+import { PiNotePencilLight } from 'react-icons/pi'
 import { MdOutlineDashboard } from "react-icons/md";
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
@@ -20,6 +20,7 @@ const NavList = styled.ul`
 `
 
 const StyledNavLink = styled(NavLink)`
+  overflow: hidden;
     &:link,
     &:visited{
         display: flex;
@@ -57,7 +58,8 @@ const StyledNavLink = styled(NavLink)`
 
 `
 const StyledMainNav = styled.nav`
-    width: ${props => (props.isCollapsed ? "auto" : "9rem")};
+    width: ${props => (props.isCollapsed ? "auto" : "4rem")};
+    
 `
 const MainNav = ({ toggleSideNav }) => {
 
@@ -77,6 +79,12 @@ const MainNav = ({ toggleSideNav }) => {
                     </StyledNavLink>
                 </li>
                 <li>
+                    <StyledNavLink to="/registrations">
+                        <PiNotePencilLight />
+                        {toggleSideNav && <span>Registrations</span>}
+                    </StyledNavLink>
+                </li>
+                <li>
                     <StyledNavLink to="/dashboard">
                         <MdOutlineDashboard />
                         {toggleSideNav && <span>DashBoard</span>}
@@ -89,9 +97,9 @@ const MainNav = ({ toggleSideNav }) => {
                     </StyledNavLink>
                 </li>
                 <li>
-                    <StyledNavLink to="/profile">
+                    <StyledNavLink to="/techallianceteam">
                         <HiOutlineUsers />
-                        {toggleSideNav && <span>Profile</span>}
+                        {toggleSideNav && <span>Team TA</span>}
                     </StyledNavLink>
                 </li>
             </NavList>

@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components"
 import PropTypes from 'prop-types'
 const StyledLogo = styled.div`
+
     text-align: center;
     display: flex;
     flex-direction: column;

@@ -5,7 +5,11 @@ import { HiArrowLeftCircle, HiArrowRightCircle } from "react-icons/hi2";
 import { useState } from "react";
 
 const StyledSideNav = styled.aside`
-    position: relative;
+   position: fixed;
+    top: 6.1rem;
+    left: 0;
+    bottom: 0;
+    
     background-color: var(--color-grey-0);
     padding: 3.2rem 2.4rem;
     border-right: 1px solid var(--color-grey-100);
@@ -20,11 +24,15 @@ const SideNavToggleIcon = styled.div`
         z-index: 1;
     `
 
-const SideNav = () => {
+const SideNav = ({ setCollapsed }) => {
     const [toggleSideNav, setToggleSideNav] = useState(true);
+    const handleToggle = () => {
+        setToggleSideNav(!toggleSideNav);
+        setCollapsed(!toggleSideNav);
+    }
     return (
         <StyledSideNav isCollapsed={!toggleSideNav}>
-            <SideNavToggleIcon onClick={() => setToggleSideNav(!toggleSideNav)}>
+            <SideNavToggleIcon onClick={handleToggle}>
                 {toggleSideNav ? <HiArrowRightCircle /> : <HiArrowLeftCircle />}
             </SideNavToggleIcon>
             <Logo toggleSideNav={toggleSideNav} />
@@ -32,4 +40,7 @@ const SideNav = () => {
         </StyledSideNav>
     )
 }
+
+
+
 export default SideNav;
