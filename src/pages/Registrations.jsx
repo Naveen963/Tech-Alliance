@@ -8,7 +8,7 @@ const Registrations = () => {
         <>
             <Row type="horizontal" style={{ marginBottom: '2rem' }}>
                 <Heading as="h1">Course Registrations</Heading>
-                <p>Filter</p>
+                {/* <p>Filter</p> */}
             </Row>
             <Row>
                 <RegistrationsTable />
