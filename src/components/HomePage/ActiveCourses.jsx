@@ -83,7 +83,7 @@ const ActiveCourses = () => {
                 [course.id]: true
             }));
             document.activeElement.blur();
-            queryClient.invalidateQueries({ queryKey: ['registrations'] })
+            queryClient.invalidateQueries({ queryKey: ['registrations'] }) //making refetching the data
 
         },
         onError: (err) => {
@@ -117,7 +117,7 @@ const ActiveCourses = () => {
                         alignItems="center" columnSpacing={{ xs: 1, sm: 1, md: 2 }} spacing={{ xs: 2, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }} style={{ marginRight: '4rem' }}>
 
                         {activeCourses && activeCourses.map((course, idx) => (
-                            <Card key={idx} item xs={2} sm={4} md={4} sx={{ maxWidth: 250, boxShadow: 2, marginBottom: '1rem', cursor: 'pointer' }}>
+                            <Card key={idx} xs={2} sm={4} md={4} sx={{ maxWidth: 275, boxShadow: 2, marginBottom: '1rem', cursor: 'pointer' }}>
                                 <CardMedia
                                     sx={{ height: 140 }}
                                     image={course.imageUrl}

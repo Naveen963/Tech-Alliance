@@ -13,8 +13,10 @@ const StyledLogo = styled.div`
     margin-left:-1.6rem ;
 `
 
-const Img = styled.img`
-    ${props => props.toggle ?
+const Img = styled.img.attrs(props => ({
+    toggle: props.toggle
+}))`
+    ${props => props.toggle == 'true' ?
         css`
          height: 10rem;
     width: 10rem;
@@ -32,7 +34,7 @@ const Img = styled.img`
 const Logo = ({ toggleSideNav }) => {
     return (
         <StyledLogo >
-            <Img src="/tech-alliance-logo.jpg" alt="Logo" toggle={toggleSideNav} />
+            <Img src="/tech-alliance-logo.jpg" alt="Logo" toggle={toggleSideNav.toString()} />
             {toggleSideNav && <p>Tech Alliance</p>}
         </StyledLogo>
     )

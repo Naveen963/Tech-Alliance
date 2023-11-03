@@ -1,8 +1,8 @@
 import React from 'react'
-
+import Heading from '../ui/Heading'
 const Dashboard = () => {
     return (
-        <div>Dashboard</div>
+        <Heading as="h1" style={{ margin: 'auto', marginTop: '30vh' }}>Coming Soon....</Heading>
     )
 }
 

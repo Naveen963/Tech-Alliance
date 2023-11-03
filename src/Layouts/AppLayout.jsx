@@ -12,11 +12,13 @@ const StyledAppLayout = styled.div`
 `
 
 
-const Main = styled.main`
+const Main = styled.main.attrs(props => ({
+    iscollapsed: props.iscollapsed
+}))`
   background-color: var(--color-grey-50);
   
  
-  padding:${props => props.isCollapsed ? '8rem 2.8rem 4rem 25.4rem' : '8rem 2.8rem 4rem 10rem'};
+  padding:${props => props.iscollapsed == 'true' ? '8rem 2.8rem 4rem 25.4rem' : '8rem 2.8rem 4rem 10rem'};
   height: 100vh;
   grid-column:2/-1;/* Ensure the main section starts from the second column */
 `;
@@ -36,7 +38,7 @@ const AppLayout = () => {
         <StyledAppLayout>
             <Header />
             <SideNav setCollapsed={setCollapsed} />
-            <Main isCollapsed={isCollapsed}>
+            <Main iscollapsed={isCollapsed.toString()}>
                 <Container>
                     <Outlet />
                 </Container>

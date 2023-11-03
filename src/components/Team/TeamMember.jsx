@@ -19,10 +19,10 @@ const MemberBlock = styled.div`
          }
 `
 const Img = styled.img`
-  object-fit: cover;
-  height: 150px;
-  width: 200px;
-  
+   object-fit: cover;
+  height: 20rem; /* Adjust this height as needed */
+  width: 100%;
+  max-width: 100%;
 `;
 
 const Details = styled.div`

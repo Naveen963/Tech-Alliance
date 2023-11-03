@@ -10,12 +10,15 @@ import { MdOutlineDashboard } from "react-icons/md";
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
-const NavList = styled.ul`
+const NavList = styled.ul.attrs(props => ({
+    iscollapsed: props.iscollapsed,
+    ...props
+}))`
     display: flex;
     flex-direction: column;
     gap: 0.8rem;
     overflow: hidden;
-    margin-left: ${props => (props.isCollapsed ? "auto" : "-3rem")};
+    margin-left: ${props => (props.iscollapsed == "true" ? "auto" : "-3rem")};
 
 `
 
@@ -57,14 +60,16 @@ const StyledNavLink = styled(NavLink)`
   }
 
 `
-const StyledMainNav = styled.nav`
-    width: ${props => (props.isCollapsed ? "auto" : "4rem")};
+const StyledMainNav = styled.nav.attrs(props => ({
+    iscollapsed: props.iscollapsed
+}))`
+    width: ${props => (props.iscollapsed == 'true' ? "auto" : "4rem")};
     
 `
 const MainNav = ({ toggleSideNav }) => {
 
     return (
-        <StyledMainNav isCollapsed={toggleSideNav} >
+        <StyledMainNav iscollapsed={toggleSideNav.toString()} >
             <NavList >
                 <li>
                     <StyledNavLink to="/home">
@@ -72,12 +77,12 @@ const MainNav = ({ toggleSideNav }) => {
                         {toggleSideNav && <span>Home</span>}
                     </StyledNavLink>
                 </li>
-                <li>
+                {/* <li>
                     <StyledNavLink to="/home">
                         <BsWindowStack />
                         {toggleSideNav && <span>My Courses</span>}
                     </StyledNavLink>
-                </li>
+                </li> */}
                 <li>
                     <StyledNavLink to="/registrations">
                         <PiNotePencilLight />
@@ -90,12 +95,12 @@ const MainNav = ({ toggleSideNav }) => {
                         {toggleSideNav && <span>DashBoard</span>}
                     </StyledNavLink>
                 </li>
-                <li>
+                {/* <li>
                     <StyledNavLink to="/home">
                         <BsTrophy />
                         {toggleSideNav && <span>Hackathons</span>}
                     </StyledNavLink>
-                </li>
+                </li> */}
                 <li>
                     <StyledNavLink to="/techallianceteam">
                         <HiOutlineUsers />

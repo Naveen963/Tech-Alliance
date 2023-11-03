@@ -8,6 +8,7 @@ const TechAllianceTeam = () => {
 
             <Heading as="h1">Tech Alliance Team</Heading>
             <TeamDashboard />
+
         </>
     )
 }

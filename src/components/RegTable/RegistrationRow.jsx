@@ -79,5 +79,5 @@ function RegistrationRow({ regCourse }) {
 export default RegistrationRow;
 
 RegistrationRow.propTypes = {
-  regCourse: PropTypes.array.isRequired
+  regCourse: PropTypes.object.isRequired
 }

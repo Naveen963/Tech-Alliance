@@ -4,7 +4,9 @@ import Logo from "./Logo";
 import { HiArrowLeftCircle, HiArrowRightCircle } from "react-icons/hi2";
 import { useState } from "react";
 
-const StyledSideNav = styled.aside`
+const StyledSideNav = styled.aside.attrs(props => ({
+    iscollapsed: props.iscollapsed
+}))`
    position: fixed;
     top: 6.1rem;
     left: 0;
@@ -14,7 +16,7 @@ const StyledSideNav = styled.aside`
     padding: 3.2rem 2.4rem;
     border-right: 1px solid var(--color-grey-100);
     grid-row: 1/-1;
-    width: ${props => (props.isCollapsed ? "7rem" : "23rem")};
+    width: ${props => (props.iscollapsed == 'true' ? "7rem" : "23rem")}; //props.iscollapsed is also same to avoid warinngs '$' added
     `
 const SideNavToggleIcon = styled.div`
         position: absolute;
@@ -31,7 +33,7 @@ const SideNav = ({ setCollapsed }) => {
         setCollapsed(!toggleSideNav);
     }
     return (
-        <StyledSideNav isCollapsed={!toggleSideNav}>
+        <StyledSideNav iscollapsed={(!toggleSideNav).toString()}>
             <SideNavToggleIcon onClick={handleToggle}>
                 {toggleSideNav ? <HiArrowRightCircle /> : <HiArrowLeftCircle />}
             </SideNavToggleIcon>

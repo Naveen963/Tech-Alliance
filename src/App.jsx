@@ -9,6 +9,8 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import Registrations from "./pages/Registrations";
 import TechAllianceTeam from "./pages/TechAllianceTeam";
 import { Toaster } from "react-hot-toast";
+import Login from "./pages/Login";
+import ProtectedRoute from "./authentication/ProtectedRoute";
 const App = () => {
   const queryClient = new QueryClient({
     defaultOptions: {
@@ -26,13 +28,16 @@ const App = () => {
         <BrowserRouter>
           <Routes>
             <Route path="register" element={<Register />} ></Route>
-            <Route element={<AppLayout />} >
+            <Route element={<ProtectedRoute>
+              <AppLayout />
+            </ProtectedRoute>} >
               <Route index element={<Navigate replace to="home" />} />
               <Route path="home" element={<Home />} />
               <Route path="registrations" element={<Registrations />} />
               <Route path="dashboard" element={<Dashboard />} />
               <Route path="techallianceteam" element={<TechAllianceTeam />} />
             </Route>
+            <Route path="login" element={<Login />} />
           </Routes>
         </BrowserRouter>
         <Toaster position="top-center"

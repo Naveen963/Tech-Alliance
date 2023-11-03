@@ -13,6 +13,7 @@ const Team = styled.div`
   column-gap: 2.4rem;
   align-items: center;
   padding: 0rem 2.4rem;
+  padding-bottom: 2.4rem;
 `
 const TeamDashboard = () => {
     const { isLoading, data: team, error } = useQuery({

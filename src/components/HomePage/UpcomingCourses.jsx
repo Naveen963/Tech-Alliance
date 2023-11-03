@@ -62,7 +62,7 @@ const UpComingCourses = () => {
 
                         {upComingCourses && upComingCourses.map((course, idx) => (
 
-                            <Card key={idx} item xs={2} sm={4} md={4} sx={{ maxWidth: 250, boxShadow: 2, marginBottom: '1rem' }}>
+                            <Card key={idx} xs={2} sm={4} md={4} sx={{ maxWidth: 275, boxShadow: 2, marginBottom: '1rem' }}>
                                 <CardMedia
                                     sx={{ height: 140 }}
 
