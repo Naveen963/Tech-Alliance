@@ -15,8 +15,6 @@ const MemberBlock = styled.div`
   transition: all ease 0.5s;
   cursor: pointer;  
   &:hover{
-       
-
        transform: scale(1.03);
          }
 `
@@ -51,7 +49,7 @@ const TeamMember = ({ member }) => {
     return (
         <MemberBlock>
 
-            <Img src={imageURL ?? "user.jpeg"} />
+            <Img src={imageURL ?? "default-user.jpg"} />
             <Details>
                 <Detail><i style={{ color: 'var(--color-grey-400)' }}>Name</i>: {name}</Detail>
                 <Detail><i style={{ color: 'var(--color-grey-400)' }}>Role</i>: {role}</Detail>

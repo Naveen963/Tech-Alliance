@@ -8,10 +8,11 @@ import styled from 'styled-components'
 
 const Team = styled.div`
   display: grid;
+  margin-top: -3rem;
   grid-template-columns:  1fr 1fr ;
   column-gap: 2.4rem;
   align-items: center;
-  padding: 1.4rem 2.4rem;
+  padding: 0rem 2.4rem;
 `
 const TeamDashboard = () => {
     const { isLoading, data: team, error } = useQuery({

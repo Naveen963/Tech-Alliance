@@ -5,12 +5,9 @@ import Row from "../ui/Row";
 const TechAllianceTeam = () => {
     return (
         <>
-            <Row type="horizontal">
-                <Heading as="h1">Tech Alliance Team</Heading>
-            </Row>
-            <Row>
-                <TeamDashboard />
-            </Row>
+
+            <Heading as="h1">Tech Alliance Team</Heading>
+            <TeamDashboard />
         </>
     )
 }

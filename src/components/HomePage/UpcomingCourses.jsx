@@ -14,10 +14,11 @@ import Spinner from '../../ui/Spinner';
 const StyledActive = styled.div`
     display: flex;
     flex-direction: column;
-     cursor: not-allowed;
+    cursor: not-allowed;
+    margin-left: -2rem;
 `
-const Heading = styled.h3`
-    font-size: 2rem;
+const Heading = styled.h1`
+    font-size: 2.5rem;
     font-weight: 300;
     padding: 1rem 0rem;
     margin-bottom: 4rem;
@@ -29,6 +30,22 @@ justify-content: center;
  font-size: 3rem;
  font-weight: 500;
 `
+
+const ButtonIcon = styled.button`
+  background: none;
+  border: none;
+  cursor: not-allowed;
+  padding: 0.6rem;
+  font-size: 1.3rem;
+  font-weight: 100;
+ color: var(--color-indigo-700);
+  border-radius: var(--border-radius-sm);
+  transition: all 0.2s;
+
+  &:hover {
+    background-color: var(--color-indigo-100);
+  }
+`;
 const UpComingCourses = () => {
     const { isLoading, data: upComingCourses, error } = useQuery({
         queryKey: ['upcomingcourses'],
@@ -61,9 +78,9 @@ const UpComingCourses = () => {
                                         {course.description}
                                     </Typography>
                                 </CardContent>
-                                <CardActions>
-                                    <Button size="small">Enroll</Button>
-                                    <Button size="small">View Details</Button>
+                                <CardActions style={{ marginTop: '0.8rem' }}>
+                                    <ButtonIcon size="large" disabled>Enroll</ButtonIcon>
+                                    <ButtonIcon size="large" disabled>View Details</ButtonIcon>
                                 </CardActions>
                             </Card>
                         ))}

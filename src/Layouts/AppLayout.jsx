@@ -8,17 +8,28 @@ const StyledAppLayout = styled.div`
     grid-template-columns:auto  1fr;
     grid-template-rows: auto  1fr;
     height: 100vh;
+    background-color: black;
 `
 
 
 const Main = styled.main`
   background-color: var(--color-grey-50);
   
-  padding:${props => props.isCollapsed ? '8rem 2.8rem 4rem 25.4rem' : '8rem 2.8rem 4rem 10rem'};
  
+  padding:${props => props.isCollapsed ? '8rem 2.8rem 4rem 25.4rem' : '8rem 2.8rem 4rem 10rem'};
+  height: 100vh;
   grid-column:2/-1;/* Ensure the main section starts from the second column */
 `;
 
+const Container = styled.div`
+    max-width: 100%;
+  
+    max-height: 100vh;
+    margin: 0 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3.2rem;
+`
 const AppLayout = () => {
     const [isCollapsed, setCollapsed] = useState(true);
     return (
@@ -26,7 +37,9 @@ const AppLayout = () => {
             <Header />
             <SideNav setCollapsed={setCollapsed} />
             <Main isCollapsed={isCollapsed}>
-                <Outlet />
+                <Container>
+                    <Outlet />
+                </Container>
             </Main>
 
         </StyledAppLayout>

@@ -7,7 +7,6 @@ export async function getActiveCourses() {
     .eq("course_type", "active");
 
   if (error) {
-    console.log(error);
     throw new Error("Courses can't be loaded");
   }
   return courses;
@@ -19,7 +18,6 @@ export async function getUpcomingCourses() {
     .eq("course_type", "upcoming");
 
   if (error) {
-    console.log(error);
     throw new Error("Courses can't be loaded");
   }
   return courses;
@@ -36,7 +34,6 @@ export async function getDashboardData() {
 `);
 
   if (error) {
-    console.log(error);
     throw new Error("Courses can't be loaded");
   }
   return userregcourses;
