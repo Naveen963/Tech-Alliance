@@ -17,12 +17,24 @@ const MemberBlock = styled.div`
   &:hover{
        transform: scale(1.03);
          }
+         @media (max-width: 990px) {
+    grid-template-columns: 1fr;
+  }
 `
 const Img = styled.img`
    object-fit: cover;
   height: 20rem; /* Adjust this height as needed */
   width: 100%;
   max-width: 100%;
+  /* @media (max-width:768px) {
+    height: 100%;
+    object-fit: contain;
+  } */
+  @media (max-width:850px) {
+    height: 100%;
+    object-fit: contain;
+  }
+ 
 `;
 
 const Details = styled.div`
@@ -35,6 +47,11 @@ const Details = styled.div`
     &:hover{
          background-color: #f3f5f8;
     }
+    @media (max-width: 990px) {
+    padding: 1rem 2rem;
+  }
+ 
+
 `
 
 const Detail = styled.p`

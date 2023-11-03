@@ -14,6 +14,21 @@ const Team = styled.div`
   align-items: center;
   padding: 0rem 2.4rem;
   padding-bottom: 2.4rem;
+  background-color: var(--color-grey-50);
+ // background-color: red;
+ 
+ @media (max-width: 1024px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: 850px) {
+    grid-template-columns: 1fr;
+  }
+
+  @media (max-width: 480px) {
+    padding: 0rem 1.2rem;
+  }
+
 `
 const TeamDashboard = () => {
     const { isLoading, data: team, error } = useQuery({
