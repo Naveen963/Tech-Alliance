@@ -8,8 +8,8 @@ const RegisterLayout = styled.main`
   grid-template-rows:auto;
   align-content: center;
   justify-content: center;
-  gap: 2rem;
-  margin-top: -2rem;
+  gap: 1rem;
+  
   background-color: var(--color-grey-100);
 `;
 

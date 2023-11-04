@@ -1,7 +1,6 @@
 import supabase from "./supabase";
 
 export default async function getUserData(id) {
-  console.log(id);
   let { data: team, error } = await supabase
     .from("usersData")
     .select("*")

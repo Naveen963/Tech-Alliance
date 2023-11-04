@@ -1,7 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import getUserData from "../services/getUserData";
 export function useGetUserDetails(id) {
-  console.log(id);
   const { isLoading, data: userData } = useQuery({
     queryKey: ["userData"],
     queryFn: () => getUserData(id),
