@@ -63,15 +63,15 @@ const Course = styled.div`
 
 function RegistrationRow({ regCourse }) {
 
-  const { users: user, courses: course } = regCourse;
+  const { usersData: user, courses: course } = regCourse;
   return (
     <TableRow role='row'>
-      <Img src={user.image || 'default-user.jpg'} />
-      <RegistrationNo>{user.reg_no}</RegistrationNo>
-      <UserName>{user.name}</UserName>
-      <RowData>{user.branch}</RowData>
-      <RowData>{user.section}</RowData>
-      <Course name={course.name[0]}>{course.name}</Course>
+      <Img src={user?.image || 'default-user.jpg'} />
+      <RegistrationNo>{user?.reg_no}</RegistrationNo>
+      <UserName>{user?.name}</UserName>
+      <RowData>{user?.branch}</RowData>
+      <RowData>{user?.section}</RowData>
+      <Course name={course?.name[0]}>{course?.name}</Course>
     </TableRow>
   );
 }

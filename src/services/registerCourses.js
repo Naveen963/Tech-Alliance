@@ -6,6 +6,7 @@ export default async function registerCourse(register) {
     .insert([register])
     .select();
   if (error) {
+    console.log(error, error.message, error.hint);
     throw new Error("Couldn't enroll to Course");
   }
   return data;

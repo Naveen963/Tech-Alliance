@@ -7,7 +7,7 @@ export default async function getCourseRegistrations() {
     courses(
      *
     ),
-    users(
+    usersData(
         *
         )
   `);

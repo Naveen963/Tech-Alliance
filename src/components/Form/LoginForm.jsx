@@ -5,10 +5,26 @@ import Input from "../../ui/Input";
 import FormRowVertical from "../../ui/FormRowVertical";
 import useLogin from "../../authentication/useLogin";
 import SpinnerMini from "../../ui/SpinnerMini";
+import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
+
+const SignUp = styled.span`
+  color:var(--color-brand-500);
+  text-decoration: underline;
+  transition: all ease 0.3s;
+  cursor: pointer;
+  &:hover{
+    color:var(--color-brand-700)
+  }
+`
 function LoginForm() {
+  const navigate = useNavigate();
+  // const [email, setEmail] = useState("nk@gmail.com");
+  // const [password, setPassword] = useState("123456");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
   const { userLogin: login, isLoading } = useLogin();
 
   function handleSubmit(e) {
@@ -54,6 +70,9 @@ function LoginForm() {
         >
           {!isLoading ? "Log in" : <SpinnerMini />}
         </Button>
+      </FormRowVertical>
+      <FormRowVertical>
+        <p style={{ textAlign: 'center' }}> Don't have an account? <SignUp onClick={() => navigate("/register")}>Sign Up</SignUp></p>
       </FormRowVertical>
     </Form>
   );

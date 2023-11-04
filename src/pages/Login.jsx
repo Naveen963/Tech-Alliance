@@ -10,6 +10,7 @@ const LoginLayout = styled.main`
   align-content: center;
   justify-content: center;
   gap: 2rem;
+  margin-top: -2rem;
   background-color: var(--color-grey-100);
 `;
 

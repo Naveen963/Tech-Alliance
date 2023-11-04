@@ -12,6 +12,8 @@ import Spinner from '../../ui/Spinner';
 import registerCourse from '../../services/registerCourses';
 import toast from 'react-hot-toast';
 import getCourseRegistrations from '../../services/getCourseRegistrations';
+import { useGetUser } from '../../authentication/useGetUser';
+import { useGetUserDetails } from '../../authentication/useGetUserDetail';
 
 const StyledActive = styled.div`
     display: flex;
@@ -63,7 +65,8 @@ const ButtonIcon = styled.button`
 const ActiveCourses = () => {
     const queryClient = useQueryClient();
     const [isRegister, setIsRegister] = useState({});
-
+    const { user } = useGetUser();
+    const { userData } = useGetUserDetails(user?.id);
     const { data: registrations } = useQuery({
         queryKey: ["registrations"],
         queryFn: getCourseRegistrations
@@ -94,7 +97,7 @@ const ActiveCourses = () => {
     //1c66fc25-dcac-40e6-8ffe-d49da8f4a9ba
 
     useEffect(() => {
-        const data = registrations?.filter(c => c.user_id == '649f3ff0-0d42-464a-a229-3456fb3537f9').map(c => c.course_id)
+        const data = registrations?.filter(c => c.user_id == userData?.[0]?.id).map(c => c.course_id)
         data?.map(c => setIsRegister(prevState => ({
             ...prevState,
             [c]: true
@@ -102,7 +105,7 @@ const ActiveCourses = () => {
     }, [registrations])
     const enrollCourse = (id) => {
         const regPayload = {
-            user_id: '649f3ff0-0d42-464a-a229-3456fb3537f9',
+            user_id: userData?.[0]?.id,
             course_id: id
         }
         mutate(regPayload);

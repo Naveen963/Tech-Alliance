@@ -11,6 +11,8 @@ import TechAllianceTeam from "./pages/TechAllianceTeam";
 import { Toaster } from "react-hot-toast";
 import Login from "./pages/Login";
 import ProtectedRoute from "./authentication/ProtectedRoute";
+import AddMember from "./pages/AddMember";
+import NoPageFound from "./pages/NoPageFound";
 const App = () => {
   const queryClient = new QueryClient({
     defaultOptions: {
@@ -27,7 +29,6 @@ const App = () => {
         <GlobalStyles />
         <BrowserRouter>
           <Routes>
-            <Route path="register" element={<Register />} ></Route>
             <Route element={<ProtectedRoute>
               <AppLayout />
             </ProtectedRoute>} >
@@ -35,9 +36,12 @@ const App = () => {
               <Route path="home" element={<Home />} />
               <Route path="registrations" element={<Registrations />} />
               <Route path="dashboard" element={<Dashboard />} />
+              <Route path="addmember" element={<AddMember />} />
               <Route path="techallianceteam" element={<TechAllianceTeam />} />
             </Route>
             <Route path="login" element={<Login />} />
+            <Route path="register" element={<Register />} />
+            <Route path="*" element={<NoPageFound />} />
           </Routes>
         </BrowserRouter>
         <Toaster position="top-center"

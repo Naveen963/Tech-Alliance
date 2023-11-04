@@ -5,8 +5,9 @@ const StyledLogo = styled.div`
 `;
 
 const Img = styled.img`
-  height: 15rem;
-  width: 15rem;
+  height: 25rem;
+  width: 25rem;
+  border-radius: 50%;
 `;
 
 function Logo() {

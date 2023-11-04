@@ -30,7 +30,7 @@ export async function getDashboardData() {
   courses (
     *
   ),
-  users(*)
+  usersData(*)
 `);
 
   if (error) {

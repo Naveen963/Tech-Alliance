@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { BsWindowStack, BsTrophy } from "react-icons/bs";
+import { BsWindowStack, BsTrophy, BsPersonPlus } from "react-icons/bs";
 import {
     HiOutlineHome,
     HiOutlineUsers
@@ -95,12 +95,7 @@ const MainNav = ({ toggleSideNav }) => {
                         {toggleSideNav && <span>DashBoard</span>}
                     </StyledNavLink>
                 </li>
-                {/* <li>
-                    <StyledNavLink to="/home">
-                        <BsTrophy />
-                        {toggleSideNav && <span>Hackathons</span>}
-                    </StyledNavLink>
-                </li> */}
+
                 <li>
                     <StyledNavLink to="/techallianceteam">
                         <HiOutlineUsers />
@@ -116,3 +111,16 @@ MainNav.propTypes = {
     toggleSideNav: PropTypes.bool.isRequired,
 };
 export default MainNav
+
+//  <li>
+//                     <StyledNavLink to="/home">
+//                         <BsTrophy />
+//                         {toggleSideNav && <span>Hackathons</span>}
+//                     </StyledNavLink>
+//                 </li>
+//                 <li>
+//                     <StyledNavLink to="/addmember">
+//                         <BsPersonPlus />
+//                         {toggleSideNav && <span>Add Member</span>}
+//                     </StyledNavLink>
+//                 </li>
