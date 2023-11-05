@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { BsWindowStack, BsTrophy, BsPersonPlus } from "react-icons/bs";
+import { BsWindowStack, BsTrophy, BsPersonPlus, BsBook } from "react-icons/bs";
 import {
     HiOutlineHome,
     HiOutlineUsers
@@ -75,6 +75,12 @@ const MainNav = ({ toggleSideNav }) => {
                     <StyledNavLink to="/home">
                         <HiOutlineHome />
                         {toggleSideNav && <span>Home</span>}
+                    </StyledNavLink>
+                </li>
+                <li>
+                    <StyledNavLink to="/courses">
+                        <BsBook />
+                        {toggleSideNav && <span>Courses</span>}
                     </StyledNavLink>
                 </li>
                 {/* <li>

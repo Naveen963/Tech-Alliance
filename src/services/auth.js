@@ -48,7 +48,6 @@ export async function registerUser(userObj) {
     //   .delete()
     //   .eq("id", data?.user?.id); //(data?.user?.id);
     // console.log(d, error);
-    console.log(userError, userError.message);
     throw new Error(userError.message);
   }
   if (imageName != "") {
@@ -57,7 +56,6 @@ export async function registerUser(userObj) {
       .upload(imageName, user.image);
 
     if (imageError) {
-      console.log(imageError);
       throw new Error(imageError.message);
     }
   }
