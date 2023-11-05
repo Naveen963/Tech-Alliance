@@ -14,7 +14,7 @@ const Table = styled.div`
 
 const TableHeader = styled.header`
     display: grid;
-    grid-template-columns: 0.2fr 1fr 2.2fr 1.3fr 1fr 1fr;
+    grid-template-columns: 0.25fr 1fr 2.2fr 0.6fr 1.3fr 1fr 1fr;
     column-gap: 2.4rem;
     align-items: center;
     background-color: var(--color-grey-50);
@@ -41,6 +41,7 @@ const RegistrationsTable = () => {
                             <div></div>
                             <div>Registration No</div>
                             <div>Name</div>
+                            <div>Year</div>
                             <div>Branch</div>
                             <div>Section</div>
                             <div>Course</div>

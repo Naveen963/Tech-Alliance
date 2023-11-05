@@ -59,21 +59,22 @@ function AddMemberForm() {
   const navigate = useNavigate();
 
   const { signup, isLoading } = useSignup();
-  const { data: activeCourses } = useQuery({
-    queryKey: ['activecourses'],
-    queryFn: getActiveCourses
-  })
+  // const { data: activeCourses } = useQuery({
+  //   queryKey: ['activecourses'],
+  //   queryFn: getActiveCourses
+  // })
   const { register, handleSubmit, reset, getValues, formState } = useForm();
   const { errors } = formState;
   const submitHandler = (data) => {
-    const skillVal = data?.skill == '' ? activeCourses[0] : activeCourses?.filter(c => c.name == data.skill)?.[0]
+    // const skillVal = data?.skill == '' ? activeCourses[0] : activeCourses?.filter(c => c.name == data.skill)?.[0]
     signup(
-      { ...data, skill: skillVal, image: data.image?.[0] },
+      { ...data, image: data.image?.[0] },
       {
+        onSuccess: () => navigate('/login'),
         onSettled: () => reset()
       }
     );
-    navigate('/login')
+
   }
   return (
     <>
@@ -163,7 +164,7 @@ function AddMemberForm() {
           />
 
         </FormRow>
-        <FormRow label="Course" >
+        {/* <FormRow label="Course" >
           <Select id="skill"
             disabled={isLoading}
             {...register("skill")}>
@@ -172,7 +173,7 @@ function AddMemberForm() {
           </Select>
 
 
-        </FormRow>
+        </FormRow> */}
 
 
         <FormRow label="Image">

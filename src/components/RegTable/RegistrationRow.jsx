@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 // v1
 const TableRow = styled.div`
   display: grid;
-  grid-template-columns:  0.2fr 1fr 2.2fr 1.3fr 1fr 1fr;
+  grid-template-columns:  0.25fr 1fr 2.2fr 0.6fr 1.3fr  1fr 1fr;
   column-gap: 2.4rem;
   align-items: center;
   padding: 1.4rem 2.4rem;
@@ -69,6 +69,7 @@ function RegistrationRow({ regCourse }) {
       <Img src={user?.image || 'default-user.jpg'} />
       <RegistrationNo>{user?.reg_no}</RegistrationNo>
       <UserName>{user?.name}</UserName>
+      <RowData>{user?.year}</RowData>
       <RowData>{user?.branch}</RowData>
       <RowData>{user?.section}</RowData>
       <Course name={course?.name[0]}>{course?.name}</Course>

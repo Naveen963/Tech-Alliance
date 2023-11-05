@@ -13,8 +13,8 @@ export default async function login({ email, password }) {
 
 export async function registerUser(userObj) {
   const user = { ...userObj };
-  const skill = user?.skill;
-  delete user?.skill;
+  // const skill = user?.skill;
+  // delete user?.skill;
   let imagePath = "";
   let imageName = "";
   if (user?.image?.name) {
@@ -33,7 +33,6 @@ export async function registerUser(userObj) {
     },
   });
   if (error) {
-    console.log(error.message);
     throw new Error(error.message);
   }
 
@@ -43,11 +42,6 @@ export async function registerUser(userObj) {
     .insert([{ ...user, image: imagePath, user_auth_id: data?.user?.id }])
     .select();
   if (userError) {
-    console.log(userStored, {
-      ...user,
-      image: imagePath,
-      user_auth_id: data?.user?.id,
-    });
     // console.log(data?.user);
     // const { data: d, error } = await supabase
     //   .from( "auth.users")
@@ -68,14 +62,14 @@ export async function registerUser(userObj) {
     }
   }
 
-  const { error: courseError } = await supabase
-    .from("userregcourses")
-    .insert([{ course_id: skill.id, user_id: userStored[0].id }])
-    .select();
-  if (courseError) {
-    console.log(courseError, userStored);
-    throw new Error(courseError.message);
-  }
+  // const { error: courseError } = await supabase
+  //   .from("userregcourses")
+  //   .insert([{ course_id: skill.id, user_id: userStored[0].id }])
+  //   .select();
+  // if (courseError) {
+  //   console.log(courseError, userStored);
+  //   throw new Error(courseError.message);
+  // }
   return data;
 }
 

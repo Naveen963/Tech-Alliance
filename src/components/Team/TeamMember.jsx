@@ -62,24 +62,24 @@ font-family: 'Sono';
 `;
 
 const TeamMember = ({ member }) => {
-    const { name, role, email, imageURL } = member
-    return (
-        <MemberBlock>
+  const { name, role, email, imageURL, phoneNo } = member
+  return (
+    <MemberBlock>
 
-            <Img src={imageURL ?? "default-user.jpg"} />
-            <Details>
-                <Detail><i style={{ color: 'var(--color-grey-400)' }}>Name</i>: {name}</Detail>
-                <Detail><i style={{ color: 'var(--color-grey-400)' }}>Role</i>: {role}</Detail>
-                <Detail><i style={{ color: 'var(--color-grey-400)' }}>Email</i>: {email}</Detail>
-                <Detail><i style={{ color: 'var(--color-grey-400)' }}>Contact</i>: 987654321</Detail>
-            </Details>
+      <Img src={imageURL ?? "default-user.jpg"} />
+      <Details>
+        <Detail><i style={{ color: 'var(--color-grey-400)' }}>Name</i>: {name}</Detail>
+        <Detail><i style={{ color: 'var(--color-grey-400)' }}>Role</i>: {role}</Detail>
+        <Detail><i style={{ color: 'var(--color-grey-400)' }}>Email</i>: {email}</Detail>
+        <Detail><i style={{ color: 'var(--color-grey-400)' }}>Contact</i>: {phoneNo}</Detail>
+      </Details>
 
-        </MemberBlock>
-    )
+    </MemberBlock>
+  )
 }
 
 TeamMember.propTypes = {
-    member: PropType.object.isRequired
+  member: PropType.object.isRequired
 }
 
 export default TeamMember
