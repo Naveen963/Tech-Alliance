@@ -90,19 +90,24 @@ const ActiveCourses = () => {
 
         },
         onError: (err) => {
-            toast.error(err.message)
+            toast(err.message, {
+                icon: '⚠️',
+                style: {
+                    border: '1px solid #d7c644',
+                    padding: '16px',
+                    color: '#1f1f1e',
+                },
+            });
         }
     })
     //649f3ff0-0d42-464a-a229-3456fb3537f9
     //1c66fc25-dcac-40e6-8ffe-d49da8f4a9ba
+    const enrollStatus = (id) => {
+        const status = registrations?.filter(c => c?.course_id == id).map(c => c?.status)?.[0];
+        console.log(status)
+        return status ? status : 'Enroll'
+    }
 
-    useEffect(() => {
-        const data = registrations?.filter(c => c.user_id == userData?.[0]?.id).map(c => c.course_id)
-        data?.map(c => setIsRegister(prevState => ({
-            ...prevState,
-            [c]: true
-        })))
-    }, [registrations])
     const enrollCourse = (id) => {
         const regPayload = {
             user_id: userData?.[0]?.id,
@@ -135,10 +140,12 @@ const ActiveCourses = () => {
                                         {course.description}
                                     </Typography>
                                 </CardContent>
+
                                 <CardActions style={{ marginTop: '0.8rem' }}>
-                                    <ButtonIcon size="large" disabled={isRegister[course.id]}
+
+                                    <ButtonIcon size="large" disabled={registrations?.course_id == course.id && registrations?.status}
                                         onClick={() => enrollCourse(course.id)}>
-                                        {isRegister[course.id] ? 'Enrolled' : 'Enroll'}
+                                        {enrollStatus(course?.id)}
                                     </ButtonIcon>
                                     <ButtonIcon size="large">View Details</ButtonIcon>
                                 </CardActions>
