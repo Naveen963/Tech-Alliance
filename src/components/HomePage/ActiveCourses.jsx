@@ -81,10 +81,7 @@ const ActiveCourses = () => {
         onSuccess: (data, variables, context) => {
             const [course] = activeCourses.filter(c => c.id == variables.course_id)
             toast.success(`Successfully Enrolled into ${course.name}`)
-            setIsRegister(prevState => ({
-                ...prevState,
-                [course.id]: true
-            }));
+
             document.activeElement.blur();
             queryClient.invalidateQueries({ queryKey: ['registrations'] }) //making refetching the data
 
@@ -103,8 +100,9 @@ const ActiveCourses = () => {
     //649f3ff0-0d42-464a-a229-3456fb3537f9
     //1c66fc25-dcac-40e6-8ffe-d49da8f4a9ba
     const enrollStatus = (id) => {
-        const status = registrations?.filter(c => (c?.course_id == id) && (c?.user_id == user?.id)).map(c => c?.status)?.[0];
-        console.log(status)
+        console.log(registrations, id, userData?.[0]?.id)
+        const status = registrations?.filter(c => (c?.course_id == id) && (c?.user_id == userData?.[0]?.id)).map(c => c?.status)?.[0];
+        console.log(status, "status")
         return status ? status : 'Enroll'
     }
 
@@ -114,6 +112,7 @@ const ActiveCourses = () => {
             course_id: id
         }
         mutate(regPayload);
+
     }
     return (
         <>
@@ -143,7 +142,7 @@ const ActiveCourses = () => {
 
                                 <CardActions style={{ marginTop: '0.8rem' }}>
 
-                                    <ButtonIcon size="large" disabled={registrations?.course_id == course.id && registrations?.status}
+                                    <ButtonIcon size="large"
                                         onClick={() => enrollCourse(course.id)}>
                                         {enrollStatus(course?.id)}
                                     </ButtonIcon>
