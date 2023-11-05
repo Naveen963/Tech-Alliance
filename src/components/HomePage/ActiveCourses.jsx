@@ -100,9 +100,9 @@ const ActiveCourses = () => {
     //649f3ff0-0d42-464a-a229-3456fb3537f9
     //1c66fc25-dcac-40e6-8ffe-d49da8f4a9ba
     const enrollStatus = (id) => {
-        console.log(registrations, id, userData?.[0]?.id)
+        // console.log(registrations, id, userData?.[0]?.id)
         const status = registrations?.filter(c => (c?.course_id == id) && (c?.user_id == userData?.[0]?.id)).map(c => c?.status)?.[0];
-        console.log(status, "status")
+        //  console.log(status, "status")
         return status ? status : 'Enroll'
     }
 
