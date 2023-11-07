@@ -181,11 +181,11 @@
     margin-left: 70px;
     margin-top: 10px;
     }
-    .btncompleted:focus,.btncompleted:active,.btncompleted:visited,.active{
+    .btncompleted:focus,.btncompleted:active,.btncompleted:visited{
     border-bottom: 3px solid orange;
     transition:0ms;
     }
-    .btnenrolled:focus,.btnenrolled:active,.btnenrolled:visited,.active{
+    .btnenrolled:focus,.btnenrolled:active,.btnenrolled:visited{
     border-bottom: 3px solid orange;
     transition:0ms;
     
