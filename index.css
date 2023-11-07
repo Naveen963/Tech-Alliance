@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.form-cont{
+    display: flex;
+    flex-direction: column;
+}
+input{
+    width: 300px;
+    border-radius: 5px;
+    height: 40px;
+    margin-top: 10px;
+}
+select{
+    height: 40px;
+    margin-top: 10px;
+}

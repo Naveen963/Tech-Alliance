@@ -3,6 +3,7 @@ import Heading from '../ui/Heading';
 import Button from '../ui/Button';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
+import EditProfilePage from './EditProfilePage';
 
 const Container = styled.div`
     display: flex;
@@ -26,12 +27,13 @@ const NoPageFound = () => {
     const navigate = useNavigate();
     return (
         <Container>
-            <Message>
+            {/* <Message>
                 <Heading as="h1" style={{ fontSize: '2.5em' }}>
-                    Oops! No Page Found <Emoji>😔</Emoji>
+                    hii i am vijay
                 </Heading>
-            </Message>
-            <Button onClick={() => navigate('/home')}>Back to Home</Button>
+            </Message> */}
+            <EditProfilePage/>
+            {/* <Button onClick={() => navigate('/home')}>Back to Home</Button> */}
         </Container>
     );
 };
