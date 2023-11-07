@@ -14,6 +14,7 @@ import Register from "./pages/Register";
 import Registrations from "./pages/Registrations";
 import TechAllianceTeam from "./pages/TechAllianceTeam";
 import GlobalStyles from "./styles/GlobalStyles";
+import EditProfilePage from "./pages/EditProfilePage";
 const App = () => {
   const queryClient = new QueryClient({
     defaultOptions: {
@@ -40,6 +41,7 @@ const App = () => {
               <Route path="dashboard" element={<Dashboard />} />
               <Route path="addmember" element={<AddMember />} />
               <Route path="techallianceteam" element={<TechAllianceTeam />} />
+              <Route path="profile" element={<EditProfilePage />} />
             </Route>
             <Route path="login" element={<Login />} />
             <Route path="register" element={<Register />} />
