@@ -32,10 +32,25 @@ export default function CourseDetails() {
         </img>
         <img className='img2' src="/background1.jpg">
         </img>
-        </div></div>
+        </div>
+        <div className='names'>
+            <div>Naveen</div>
+            <div>Karthik</div>
+        </div>
+        </div>
     </div>
     </div>
-    <div className="outcomes">outcomes</div>
+    <div className="outcomes">
+        <p className='head'>Heading</p>
+        <div className='outcome-ptags'>
+        <p>	&#10004; Teach React.js</p>
+        <p> &#10004; RealLife Projects</p>
+        <p> &#10004; Live Sessions</p>
+        <p> &#10004; Mock Interview Sessions</p>
+        <p> &#10004; Doubt Assistance</p>
+        <p> &#10004; Dive into Concepts relating to Version control</p>
+        </div>
+    </div>
     </div>
    </div>
     </>
