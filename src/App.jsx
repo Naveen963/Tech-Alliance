@@ -36,7 +36,11 @@ const App = () => {
               <AppLayout />
             </ProtectedRoute>} >
               <Route index element={<Navigate replace to="home" />} />
-              <Route path="courses" element={<Course />} > <Route path="course/:id" element={<CourseDetails />}/></Route>
+              {/* <Route path="courses" element={<Course />} > <Route path="course/:id" element={<CourseDetails />}/></Route> */}
+              <Route path="courses" >
+             <Route index element={<Course />} />
+              <Route path="course/:id" element={<CourseDetails />} /></Route>
+
               <Route path="home" element={<Home />} />
               <Route path="registrations" element={<Registrations />} />
               <Route path="dashboard" element={<Dashboard />} />
