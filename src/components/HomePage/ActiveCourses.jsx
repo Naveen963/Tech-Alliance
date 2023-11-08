@@ -14,6 +14,8 @@ import toast from 'react-hot-toast';
 import getCourseRegistrations from '../../services/getCourseRegistrations';
 import { useGetUser } from '../../authentication/useGetUser';
 import { useGetUserDetails } from '../../authentication/useGetUserDetail';
+import CourseDetails from '../../pages/CourseDetails';
+import { useNavigate } from 'react-router-dom';
 
 const StyledActive = styled.div`
     display: flex;
@@ -114,6 +116,10 @@ const ActiveCourses = () => {
         mutate(regPayload);
 
     }
+    const navigate=useNavigate()
+    const trail=()=>{
+        navigate("course/id")
+    }
     return (
         <>
             {isLoading ? <Spinner /> :
@@ -146,7 +152,8 @@ const ActiveCourses = () => {
                                         onClick={() => enrollCourse(course.id)}>
                                         {enrollStatus(course?.id)}
                                     </ButtonIcon>
-                                    <ButtonIcon size="large">View Details</ButtonIcon>
+                                    <ButtonIcon onClick={trail} size="large">View Details</ButtonIcon>
+                                    
                                 </CardActions>
                             </Card>
                         ))}

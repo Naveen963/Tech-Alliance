@@ -15,6 +15,7 @@ import Registrations from "./pages/Registrations";
 import TechAllianceTeam from "./pages/TechAllianceTeam";
 import GlobalStyles from "./styles/GlobalStyles";
 import EditProfilePage from "./pages/EditProfilePage";
+import CourseDetails from "./pages/CourseDetails";
 const App = () => {
   const queryClient = new QueryClient({
     defaultOptions: {
@@ -35,7 +36,7 @@ const App = () => {
               <AppLayout />
             </ProtectedRoute>} >
               <Route index element={<Navigate replace to="home" />} />
-              <Route path="courses" element={<Course />} />
+              <Route path="courses" element={<Course />} > <Route path="course/:id" element={<CourseDetails />}/></Route>
               <Route path="home" element={<Home />} />
               <Route path="registrations" element={<Registrations />} />
               <Route path="dashboard" element={<Dashboard />} />
