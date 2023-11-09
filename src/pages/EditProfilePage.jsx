@@ -6,13 +6,16 @@ import {BiSolidEdit} from 'react-icons/bi'
 import { BsLinkedin } from 'react-icons/bs'
 import { AiOutlineInstagram, AiOutlineGithub } from 'react-icons/ai'
 import {SiLeetcode} from 'react-icons/si'
+import {CgCloseR} from 'react-icons/cg'
 import {DiHtml5} from 'react-icons/di';
 import {FaCss3Alt} from 'react-icons/fa';
 import {BiLogoJavascript} from 'react-icons/bi';
+import TextField from '@mui/material/TextField';
   export default function EditProfilePage(){
     const { user } = useGetUser();
     const { userData } = useGetUserDetails(user?.id);
     const[state,setState] = useState(true);
+    const[links,setLinks]=useState(true);
     const[Name,setName] = useState(userData?.[0].name);
     const[Email,setEmail] =useState(userData?.[0].email);
     const[Year,setYear] = useState(userData?.[0].year);
@@ -21,7 +24,9 @@ import {BiLogoJavascript} from 'react-icons/bi';
 
 setSelectedButton(buttonType);
 
+
 };
+if(links===true){
     return (
       <>
       <div className='main-div'>
@@ -57,7 +62,7 @@ setSelectedButton(buttonType);
                     <option value="D">F</option>
                     </select>
               </label>
-              </label>
+              </label> 
                   
 
                 <label htmlFor="branch">Branch:<input className='input-box' disabled={true} type="text" value={userData?.[0].branch} id="branch" /> 
@@ -69,7 +74,7 @@ setSelectedButton(buttonType);
               <div className='accounts'>
               <h1 className='h1-class'>Social Links</h1>
                 <div className="edit">
-                <BiSolidEdit size={20}/>
+                <BiSolidEdit onClick={()=>setLinks(false)} size={20}/>
                 </div>
                 <hr />
                 <div className='icons'>
@@ -122,5 +127,39 @@ setSelectedButton(buttonType);
         </div>
       </div>
       </>
+      );}
+    else{
+      
+      return(
+        <>
+     <div className='edit-links-out'>
+      <div className='edit-links'>
+        <div className='edit-head'>
+          <h3 className='social-head'>Social-links</h3>
+          <CgCloseR  size={22} onClick={()=>setLinks(true)} className='links-close'/>
+        </div>
+        <hr/>
+        <div className='mt-5'>
+          <div className="editlinkedin"><BsLinkedin color='#0A66C2' size={40}  className='logoedit' /> <TextField id="filled-basic"  label="Linkedin" variant="filled"  
+          InputLabelProps={{style: {fontSize: 15}}} inputProps={{style: {fontSize: 15}}}/>
+          </div>
+          <div className="editgithub"><AiOutlineGithub size={40} className='logoedit' /> <TextField id="filled-basic" label="Github" variant="filled" 
+          InputLabelProps={{style: {fontSize: 15}}}  inputProps={{style: {fontSize: 15}}}/>
+          </div>
+          <div className="editinsta"><AiOutlineInstagram color='#E4405F' size={40}  className='logoedit'/> <TextField id="filled-basic" label="Instagram" variant="filled"
+           InputLabelProps={{style: {fontSize: 15}}} inputProps={{style: {fontSize: 15}}}/>
+          </div>
+          <div className="editleetcode"><SiLeetcode size={40} className='logoedit'/> <TextField id="filled-basic" label="Leetcode" variant="filled"
+           InputLabelProps={{style: {fontSize: 15}}} inputProps={{style: {fontSize: 15}}}/>
+          </div>
+        </div>
+      <div className="links-save">
+        <button className='links-cancelbtn' onClick={()=>setLinks(true)}>Cancel</button>
+        <button className='links-savebtn' onClick={()=>setLinks(true)}>Update</button>
+      </div>
+      </div>
+      </div>
+      </>
     );
+      }
   }
