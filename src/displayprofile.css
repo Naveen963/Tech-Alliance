@@ -1,3 +1,6 @@
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities;     */
 *{
     margin: 0;
     padding: 0;
@@ -87,7 +90,7 @@
 .edit-symbol,.edit,.edit3{
     cursor: pointer;
 }
-#year{
+#yearr{
     margin-left: 30px;
     margin-right: 10px;
 }
