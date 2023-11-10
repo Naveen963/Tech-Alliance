@@ -102,12 +102,12 @@ const MainNav = ({ toggleSideNav }) => {
                         {toggleSideNav && <span>DashBoard</span>}
                     </StyledNavLink>
                 </li>
-                // <li>
-                //     <StyledNavLink to="/codeitout">
-                //         <AiOutlineCode />
-                //         {toggleSideNav && <span>Code It Out</span>}
-                //     </StyledNavLink>
-                // </li>
+                <li>
+                    <StyledNavLink to="/codeitout">
+                        <AiOutlineCode />
+                        {toggleSideNav && <span>Code It Out</span>}
+                    </StyledNavLink>
+                </li>
 
                 <li>
                     <StyledNavLink to="/techallianceteam">
