@@ -8,6 +8,7 @@ import {
 import { PiNotePencilLight } from 'react-icons/pi'
 import { MdOutlineDashboard } from "react-icons/md";
 import { NavLink } from 'react-router-dom';
+import { AiOutlineCode } from 'react-icons/ai'
 import styled from 'styled-components';
 
 const NavList = styled.ul.attrs(props => ({
@@ -101,6 +102,12 @@ const MainNav = ({ toggleSideNav }) => {
                         {toggleSideNav && <span>DashBoard</span>}
                     </StyledNavLink>
                 </li>
+                // <li>
+                //     <StyledNavLink to="/codeitout">
+                //         <AiOutlineCode />
+                //         {toggleSideNav && <span>Code It Out</span>}
+                //     </StyledNavLink>
+                // </li>
 
                 <li>
                     <StyledNavLink to="/techallianceteam">

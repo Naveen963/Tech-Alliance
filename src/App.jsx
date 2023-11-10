@@ -5,6 +5,7 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import AppLayout from "./Layouts/AppLayout";
 import ProtectedRoute from "./authentication/ProtectedRoute";
 import AddMember from "./pages/AddMember";
+import CodeItOut from "./pages/CodeItOut";
 import Course from "./pages/Courses";
 import Dashboard from "./pages/Dashboard";
 import Home from "./pages/Home";
@@ -14,6 +15,7 @@ import Register from "./pages/Register";
 import Registrations from "./pages/Registrations";
 import TechAllianceTeam from "./pages/TechAllianceTeam";
 import GlobalStyles from "./styles/GlobalStyles";
+import './index.css'
 const App = () => {
   const queryClient = new QueryClient({
     defaultOptions: {
@@ -39,6 +41,7 @@ const App = () => {
               <Route path="registrations" element={<Registrations />} />
               <Route path="dashboard" element={<Dashboard />} />
               <Route path="addmember" element={<AddMember />} />
+              <Route path="codeitout" element={<CodeItOut />} />
               <Route path="techallianceteam" element={<TechAllianceTeam />} />
             </Route>
             <Route path="login" element={<Login />} />
